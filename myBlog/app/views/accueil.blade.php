@@ -2,7 +2,11 @@
  
 @section('content')
 	@foreach($publications as $publication)
-		<h2>
+					<div class="embed-responsive-16by9">
+				<ul class="media-list col-lg-7">
+	    		<li class="media thumbnail">
+	<div class="media-body">
+		<h2 class="media-heading">
 		{{ $publication->title }}
 		{{ Form::open(array('url'=>'editPublication','action'=>'add','role'=>'form','method'=>'POST'))}}
 		{{ Form::hidden('id',$publication->id,array('type'=>'hidden','style'=>'assets/css/main.css')) }}<br>
@@ -16,10 +20,13 @@
 		<h4>{{ $publication->text }}</h4>
 		<p>Posted on {{ $publication->created_at->format('M jS, Y') }}  by
 		<a href="mailto:{{ $publication->email }}">{{ $publication->author}}</a>
-		</p><hr />
+		</p>
 		@foreach($comments as $comment)
 			@if($comment->title == $publication->title)
-				<h6>{{ $comment->text }}</h6>
+			<div class="media thumbnail" id="comment">
+				<div class="media-body">
+				<h6 class="media-heading">
+				{{ $comment->text }}</h6>
 				<p>Comment on {{ $comment->created_at->format('M jS, Y') }}  by
 				<a href="mailto:{{ $comment->email }}">{{ $comment->author}}</a>
 					{{ Form::open(array('url'=>'editComment','action'=>'add','role'=>'form','method'=>'POST'))}}
@@ -30,7 +37,9 @@
 					{{ Form::hidden('id',$comment->id,array('type'=>'hidden','style'=>'assets/css/main.css')) }}<br>
 					{{ Form::submit('Delete', '', array('type'=>'submit')) }}
 					{{ Form::close() }}
-				</p><hr />
+				</p>
+				</div>
+			</div>
 			@endif
 		@endforeach
 		{{ Form::open(array('url'=>'addComment','action'=>'add','role'=>'form','method'=>'POST'))}}
@@ -40,6 +49,10 @@
 		{{ Form::submit('add', '', array('placeholder' => 'Submit', 'type'=>'submit')) }}
 		{{ Form::close() }}
 	@endforeach
+	</div>
+	    		</li>
+				</ul>
+				</div>
 @stop
 
 @section('post')

@@ -22,7 +22,6 @@ Route::post('editPublication','HomeController@showEdit');
 Route::post('editDone','HomeController@setEdit');
 
 Route::post('addComment','PublicationsController@putComments');
-Route::post('editPublication','PublicationsController@editComment');
 Route::post('deleteComment','PublicationsController@deleteComment');
 Route::post('editComment','HomeController@showEditComment');
 Route::post('editDoneComment','HomeController@setEditComment');

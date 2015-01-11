@@ -23,29 +23,26 @@
                 </div>
             </header>
  
-            <nav class="navbar">
-                <div class="navbar-inner">
-                    <ul class="nav">
-                        @yield('navigation')
-                    </ul>
-                    {{ Form::open(array('url' => 'find', 'method' => 'POST', 'class' => 'navbar-search pull-right')) }}
-                    {{ Form::text('find', '', array('class' => 'search-query', 'placeholder' => 'Search', 'class'=>'btn btn-primary')) }}
-                    {{ Form::close() }}
-                </div>
-            </nav>
             <section>
-              @yield('content')
+	              @yield('content')
             </section>
 			
-			<h2> Nouvelle Blague ? </h2>
+			
 			<section>
-              @yield('post')
+				<div class="embed-responsive-16by9">
+				<ul class="media-list col-lg-7">
+				<li class="media thumbnail">
+				<h2> Nouvelle Blague ? </h2>
+                    @yield('post')
+				</li>
+				</ul>
+				</div>
             </section>
  
             <footer class="row">
                 <div class="span12">
                     <em>
-                        Copyright Kevin
+                        Designed by Kevin & Lucas
                     </em>
                 </div>
             </footer>

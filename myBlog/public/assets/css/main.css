@@ -1,6 +1,6 @@
-body {
+.body {
     font-family: 'Imprima', sans-serif;
-    background-color: #F5F5F5;
+    background-color: #DCE6FF;
 }
 .container {
     margin-top: 20px;
@@ -62,4 +62,5 @@ form
       margin: 20px;
       display:inline-block;
   }
+
 
